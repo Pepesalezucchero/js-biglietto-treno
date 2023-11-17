@@ -16,13 +16,26 @@ console.log("Età del cliente:", userEta);
 /* A questo punto, sapendo che il prezzo per ogni km è di 0.21€, controllo se il passeggero, in base all'età che ha inserito è minorenne o over 65.
 Perchè in base a ciò ci sono due sconti che si possono applicare*/
 
+// In fine, ottengo il prezzo finale espresso fino a due decimali.
+
 const userCostoBiglietto = parseFloat(userKmChoise * 0.21);
 console.log("Prezzo del biglietto senza sconto", userCostoBiglietto.toFixed(2), "€");
 
+//Cliente minorenne
 if (userEta < 18) {
     userScontoPrezzo = ((userCostoBiglietto * 20) / 100);
-    let userPrezzoFinale = parseFloat(userCostoBiglietto - userScontoPrezzo);
-    console.log("Il costo del biglietto", userPrezzoFinale.toFixed(2), "€")
+    const userPrezzoFinale = parseFloat(userCostoBiglietto - userScontoPrezzo);
+    console.log("Il costo del biglietto", userPrezzoFinale.toFixed(2), "€");
+    document.getElementById("mio_id").innerHTML = userPrezzoFinale.toFixed(2);
+//Cliente over 65
+} else if (userEta > 65) {
+    userScontoPrezzo = ((userCostoBiglietto * 40) / 100);
+    const userPrezzoFinale = parseFloat(userCostoBiglietto - userScontoPrezzo);
+    console.log("Il costo del biglietto", userPrezzoFinale.toFixed(2), "€");
+    document.getElementById("mio_id").innerHTML = userPrezzoFinale.toFixed(2);
+//Cliente prezzo standard
+} else {
+    (userEta > 18 && userEta < 65)
+    console.log("Il costo del biglietto", userCostoBiglietto.toFixed(2), "€");
+    document.getElementById("mio_id").innerHTML = userCostoBiglietto.toFixed(2);
 }
-
-// In fine, ottengo il prezzo finale espresso fino a due decimali.
