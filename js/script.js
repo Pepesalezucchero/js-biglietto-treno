@@ -23,19 +23,20 @@ console.log("Prezzo del biglietto senza sconto", userCostoBiglietto.toFixed(2), 
 
 //Cliente minorenne
 if (userEta < 18) {
-    userScontoPrezzo = ((userCostoBiglietto * 20) / 100);
+    userSconto = 0.2;
+    ScontoPrezzo = (userCostoBiglietto * userSconto);
 //Cliente over 65
 } else if (userEta > 65) {
-    userScontoPrezzo = ((userCostoBiglietto * 40) / 100);
+    userSconto = 0.4;
+    ScontoPrezzo = (userCostoBiglietto * userSconto);
 //Cliente prezzo standard
 } else {
-    (userEta > 18 && userEta < 65)
-    console.log("Il costo del biglietto", userCostoBiglietto.toFixed(2), "€");
-    document.getElementById("mio_id").innerHTML = userCostoBiglietto.toFixed(2);
+    (userEta > 18 && userEta < 65);
+    ScontoPrezzo = 0;
 }
 
 //prezzo finale
-let userPrezzoFinale = parseFloat(userCostoBiglietto - userScontoPrezzo);
+let userPrezzoFinale = parseFloat(userCostoBiglietto - ScontoPrezzo);
 
 console.log("Il costo del biglietto", userPrezzoFinale.toFixed(2), "€");
 document.getElementById("mio_id").innerHTML = userPrezzoFinale.toFixed(2);
